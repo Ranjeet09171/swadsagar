@@ -1,0 +1,296 @@
+/* Main Container */
+.veg-container {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 25px;
+  padding: 30px;
+  /* max-width: 1400px; */
+  margin: 20px;
+  background-color: #f8f9fa;
+}
+
+/* Individual Card */
+.veg-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* display: flex; */
+  /* flex-direction: column; */
+  height: 100%;
+  position: relative;
+  border: 1px solid #e0e0e0;
+}
+
+.veg-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.veg-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid #28a745;
+  transition: transform 0.5s ease;
+}
+
+.veg-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Content Styling */
+.veg-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 15px 15px 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 8px;
+}
+
+.veg-card p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0 15px 15px;
+  line-height: 1.5;
+  flex-grow: 1;
+  font-family: 'Arial', sans-serif;
+}
+
+.veg-card h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #28a745;
+  margin: 0 15px 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.veg-card h4::before {
+  content: '💰';
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+/* Button Styling */
+.veg-card button {
+  background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin: 0 15px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #1e7e34;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.veg-card button:hover {
+  background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+}
+
+.veg-card button:active {
+  transform: scale(0.98);
+}
+
+/* Pagination Styling */
+div[style*="textAlign:center"] {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 30px 0;
+  padding: 10px;
+}
+
+div[style*="textAlign:center"] button {
+  background-color: white;
+  color: #28a745;
+  border: 2px solid #28a745;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 45px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+div[style*="textAlign:center"] button:hover {
+  background-color: #28a745;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+}
+
+div[style*="textAlign:center"] button:active {
+  transform: translateY(0);
+}
+
+/* Active Page Button */
+div[style*="textAlign:center"] button.active {
+  background-color: #28a745;
+  color: white;
+  border-color: #1e7e34;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .veg-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .veg-card img {
+    height: 180px;
+  }
+
+  .veg-card h3 {
+    font-size: 1.2rem;
+    margin: 12px 12px 8px;
+  }
+
+  .veg-card p {
+    font-size: 0.9rem;
+    margin: 0 12px 12px;
+  }
+
+  .veg-card h4 {
+    font-size: 1.2rem;
+    margin: 0 12px 12px;
+  }
+
+  .veg-card button {
+    padding: 10px 16px;
+    margin: 0 12px 16px;
+    font-size: 0.95rem;
+  }
+
+  div[style*="textAlign:center"] button {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    min-width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .veg-container {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .veg-card img {
+    height: 160px;
+  }
+
+  .veg-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .veg-card p {
+    font-size: 0.85rem;
+  }
+
+  .veg-card h4 {
+    font-size: 1.1rem;
+  }
+
+  div[style*="textAlign:center"] {
+    gap: 5px;
+  }
+
+  div[style*="textAlign:center"] button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    min-width: 35px;
+  }
+}
+
+/* Animation for new items */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.veg-card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Loading State */
+.veg-container.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+.veg-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.veg-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.veg-container::-webkit-scrollbar-thumb {
+  background: #28a745;
+  border-radius: 10px;
+}
+
+.veg-container::-webkit-scrollbar-thumb:hover {
+  background: #218838;
+}
+
+/* Additional hover effects for cards */
+.veg-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.veg-card:hover::after {
+  opacity: 1;
+}
+
+/* Price tag styling */
+.veg-card h4::after {
+  content: '/-';
+  margin-left: 2px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Ensure proper spacing for Add to Cart button text */
+.veg-card button span {
+  margin-left: 5px;
+}

@@ -1,0 +1,63 @@
+/* Container — ONE LINE */
+.veg-container {
+  display: flex;
+  flex-wrap: nowrap;     /* ❌ No wrapping */
+  justify-content: center;
+  gap: 25px;
+  padding: 30px;
+}
+
+/* Card */
+.veg-card {
+  width: 260px;          /* Fixed width for all cards */
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+/* Image */
+.veg-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Text */
+.veg-card h3 {
+  margin: 12px 0 6px;
+}
+
+.veg-card p {
+  font-size: 14px;
+  padding: 0 10px;
+  color: #666;
+}
+
+.veg-card h4 {
+  color: #ff5722;
+}
+
+/* Button */
+.veg-card button {
+  background: #ff5722;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.popup-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: green;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 99999;
+}
