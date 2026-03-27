@@ -19,6 +19,7 @@ function Login() {
 
     if (validUser) {
 
+     localStorage.setItem("currentUser", JSON.stringify(validUser));
   let users = JSON.parse(localStorage.getItem("users")) || [];
 
   // ✅ logout all users

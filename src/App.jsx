@@ -5,7 +5,7 @@ import Cart from "./Cart";
 
 import "./App.css";
 
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Navigate} from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -16,6 +16,7 @@ import Login from "./Login";
 import Addition from "./Addition";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { useState, useEffect } from "react";
+import Profile from "./Profile";
 
 // Separate component that uses navigation hooks
 function AppContent() {
@@ -97,6 +98,7 @@ function AppContent() {
                     onMouseLeave={() => setLogoHover(false)}
                     onClick={() => window.location.href = "/home"}
                 >
+                     {/* that line is SwadSagar Icon */}
                     <i className={`fas fa-utensils ${logoHover ? 'fa-spin' : ''}`} style={{ color: '#FFD700' }}></i>
                     <span style={{ 
                         background: logoHover ? 'linear-gradient(45deg, #FFD700, #FFA500)' : 'none',
@@ -116,7 +118,8 @@ function AppContent() {
                         onClick={() => handleLinkClick("/home")}
                         className={activeLink === "/home" ? "active" : ""}
                     >
-                        <i className="fas fa-home" style={{ color: '#4A90E2' }}></i>
+                        {/* that line is Home Icon */}
+                        <i className="fas fa-home" style={{ color: '#4A90E2' }}></i>  
                         Home
                     </Link>
 
@@ -126,9 +129,12 @@ function AppContent() {
                         onClick={() => handleLinkClick("/veg")}
                         className={activeLink === "/veg" ? "active" : ""}
                     >
+                         {/* that line is veg Icon */}
                         <i className="fas fa-leaf" style={{ color: '#2ECC71' }}></i>
                         Veg-items
                     </Link>
+
+                    <Link to="/profile">Profile</Link>
 
                     {/* Non-Veg */}
                     <Link 
@@ -136,6 +142,7 @@ function AppContent() {
                         onClick={() => handleLinkClick("/nonveg")}
                         className={activeLink === "/nonveg" ? "active" : ""}
                     >
+                         {/* that line is nonveg Icon */}
                         <i className="fas fa-drumstick-bite" style={{ color: '#E74C3C' }}></i>
                         Non-Veg
                     </Link>
@@ -147,6 +154,7 @@ function AppContent() {
                         className={activeLink === "/cart" ? "active" : ""}
                         style={{ position: 'relative' }}
                     >
+                         {/* that line is cart Icon */}
                         <i className="fas fa-shopping-cart"></i>
                         Cart 
                         {totalQuantity > 0 && (
@@ -162,6 +170,7 @@ function AppContent() {
                         onClick={() => handleLinkClick("/order")}
                         className={activeLink === "/order" ? "active" : ""}
                     >
+                         {/* that line is ordor Icon */}
                         <i className="fas fa-clipboard-list" style={{ color: '#9B59B6' }}></i>
                         Order
                     </Link>
@@ -182,15 +191,12 @@ function AppContent() {
                             {isOpen && (
                                 <div className="dropdown-menu">
                                     <button
-                                        className="dropdown-item"
-                                        onClick={() => {
-                                            toast.info("Profile feature coming soon! 🚀");
-                                            setIsOpen(false);
-                                        }}
-                                    >
-                                        <i className="fas fa-user"></i>
-                                        View Profile
-                                    </button>
+  className="dropdown-item"
+  onClick={() => navigate("/profile")}
+>
+  <i className="fas fa-user"></i>
+  View Profile
+</button>
 
                                     <button
                                         className="dropdown-item"
@@ -220,6 +226,7 @@ function AppContent() {
                                             </>
                                         )}
                                     </button>
+                                    
                                 </div>
                             )}
                         </div>
@@ -256,6 +263,7 @@ function AppContent() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/add" element={<Addition />} />
                 <Route path="/" element={<Home />} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
         </>
     );
